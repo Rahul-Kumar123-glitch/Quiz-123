@@ -1,0 +1,47 @@
+body {
+    padding: 1em;
+}
+
+.draggable {
+    width: 100px;
+    padding: 5px;
+    float: left;
+    margin: 10px 10px 10px 0;
+    background: red;
+    color: #fff;
+    cursor: move;
+
+      p {
+      margin: 2px 0;
+  }
+}
+
+.droppable {
+    width: 200px;
+    padding: 5px 10px 5px 5px;
+    float: right;
+    margin: 10px;
+    border: 1px solid #ddd;
+
+    p {
+      float: right;
+      width: 50px;
+      height: 30px;
+      padding: 5px 5px 0 0;
+      text-align: center;
+      margin: 0;
+  }
+}
+
+.container {
+    clear: both;
+    margin: 10px;
+    width: 40%;
+}
+
+.droparea {
+    float: left;
+    border: 1px dashed red;
+    width: 108px;
+    height: 30px;
+}

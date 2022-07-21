@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link rel="stylesheet" type="text/css" href="style.css">
+<title>Drag and Drop Quiz</title>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.4/jquery.min.js"></script>
+<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jqueryui/1.11.4/jquery-ui.min.js"></script>
+</head>
+<body>
+<h1>Drag and Drop Quiz</h1>
+<h3>Treatment Areas</h3>
+<div class="container">
+<div data-value="1" class="draggable">
+<p>Back</p>
+</div>
+<div data-value="1" class="droppable">
+<div class="droparea"></div>
+<p>Area 1</p>
+</div>
+</div>
+<div class="container">
+<div data-value="2" class="draggable">
+<p>Adomen</p>
+</div>
+<div data-value="2" class="droppable">
+<div class="droparea"></div>
+<p>Area 2</p>
+</div>
+</div>
+<div class="container">
+<div data-value="3" class="draggable">
+<p>Chest</p>
+</div>
+<div data-value="3" class="droppable">
+<div class="droparea"></div>
+<p>Area 3</p>
+</div>
+</div>
+<script>
+$('.draggable').draggable({
+});
+$('.droppable').droppable({
+drop: function(event, ui) {
+$(this).addClass('ui-state-highlight');
+ui.draggable.position({
+of: $(this),
+my: 'left top',
+at: 'left+6 top+6'
+});
+$('.draggable').each(function(i) { 
+$(this).data('value', i+1); 
+}).filter(':first').trigger('listData');
+}
+});
+
+$('.draggable').on('listData', function() {
+$('.droppable').each(function() {
+console.log( $(this).text() + ' - ' + $(this).data('value') ); 
+});
+});
+
+</script>
+
+</body>
+</html>
